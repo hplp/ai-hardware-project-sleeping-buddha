@@ -1,30 +1,36 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Buol6fpg)
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=16912627)
-
-AI_Hardware_Project_Template
+# AI_Hardware_Project
 
 Team Name: sleeping-buddha
 
-Team Members:
-Afsara Benazir
-Shafat Shahnewaz
+## Team Members:
+Afsara Benazir,
+Shafat Shahnewaz,
 Samit Hasan
 
-Project Title: Face and gesture recognition on-device
+## Project Title: 
+FaceSafe: On-Device Authentication & Gesture Recognition
 
-Project Description:
-(Provide a short description of the problem you're addressing)
+## Project Description:
+Recognize individual face for authentication and gestures for action identification.
 
-Key Objectives:
-Objective 1
-Objective 2
-Objective 3
+## Key Objectives:
+- Privacy: On-device execution would prevent leakage of facial features and repeated gestures
+- Real-time Processing: Ensuring that face and gesture recognition runs efficiently and can provide real-time feedback without noticeable delay.
+- Robustness: Make the system robust to variations in lighting, angles, facial expressions, and hand positioning, ensuring reliable performance across different environments.
 
-Technology Stack:
-(List the hardware platform, software tools, language(s), etc. you plan to use)
+## Usability
+- Classroom attendance: streamline classroom access control and automate the attendance-taking process.
+- Smart Home features: user performs a predefined gesture, such as swiping their hand up to increase room lighting or making a circle motion to play music
 
-Expected Outcomes:
-(Describe what you expect to deliver at the end of the project)
+## Technology Stack:
+Seeed Studio XIAO ESP32S3, PyTorch, Python
 
-Timeline:
+## Expected Outcomes:
+Develop a fully functional prototype that can recognize individual faces for authentication and specific gestures for action identification.
+
+## Timeline:
 (Provide a rough timeline or milestones for the project)
+- Week 1: Initial Setup and Requirements Analysis
+- Week 2: Model Development
+- Week 3, 4: System Integration and On-Device Deployment
+- Week 5: Evaluation, documentation
