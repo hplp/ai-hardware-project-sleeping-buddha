@@ -37,11 +37,13 @@ Develop a fully functional prototype that can recognize individual faces for aut
 
 # First Milestone
 
-## Install Android studio IDE
+## Install Android studio IDE on PC
 Install Android Studio and load necessary packages from https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
 
 ## Installation of antenna
 At the bottom left corner of the XIAO ESP32S3's front side, you'll find a dedicated "WiFi/BT Antenna Connector." To enhance the WiFi and Bluetooth signal, simply take the antenna provided in the package and attach it to this connector.
+
+![image](https://github.com/user-attachments/assets/925f50e1-b3d8-4fcb-90c7-05f494f58ce5)
 
 ## Prepare the microSD card
 XIAO ESP32S3 supports microSD cards up to 32GB, we use a 4GB microSD card that will be used later. We format the microSD card to FAT32 format before using the microSD card. After formatting, we insert the microSD card into the microSD card slot.
