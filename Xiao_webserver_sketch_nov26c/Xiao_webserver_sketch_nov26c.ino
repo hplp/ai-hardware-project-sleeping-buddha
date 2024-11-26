@@ -19,8 +19,10 @@
 // ===========================
 // Enter your WiFi credentials
 // ===========================
-const char *ssid = "iPhone";
-const char *password = "s@m!t8056";
+// const char *ssid = "iPhone";
+// const char *password = "s@m!t8056";
+const char *ssid = "Afsara";
+const char *password = "afsara1234";
 
 // Function declarations
 void startCameraServer();
