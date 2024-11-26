@@ -185,3 +185,7 @@ static int run_face_recognition(fb_data_t *fb, std::list<dl::detect::result_t> *
 }
 #endif
 ```
+
+## Challenge
+- Only connects to wifi when PSRAM is disabled, then face detection does not work.  
+- thermal throttling (face detection stops working)
