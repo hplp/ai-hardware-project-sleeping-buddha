@@ -66,7 +66,7 @@ We must enable the PSRAM function in the Arduino IDE to ensure proper operation 
 ## Parameters
 
 Function declarations
-```
+``` python
 void startCameraServer();
 void setupLedFlash(int pin);
 void setupCamera();
@@ -74,7 +74,7 @@ bool initWiFi();
 ```
 
 Static variables to set up camera
-```
+``` python
 void setupCamera() {
   camera_config_t config;
   config.ledc_channel = LEDC_CHANNEL_0;
@@ -124,7 +124,7 @@ void setupCamera() {
   }
 ```
 Connect to WiFi
-```
+``` python
 bool initWiFi() {
   WiFi.mode(WIFI_STA);  // Set WiFi to station mode
   WiFi.begin(ssid, password);
@@ -152,4 +152,34 @@ bool initWiFi() {
   Serial.println(WiFi.localIP());
   return true;
 }
+```
+
+## Face recognition
+
+``` python
+#if CONFIG_ESP_FACE_RECOGNITION_ENABLED
+static int run_face_recognition(fb_data_t *fb, std::list<dl::detect::result_t> *results) {
+  std::vector<int> landmarks = results->front().keypoint;
+  int id = -1;
+
+  Tensor<uint8_t> tensor;
+  tensor.set_element((uint8_t *)fb->data).set_shape({fb->height, fb->width, 3}).set_auto_free(false);
+
+  int enrolled_count = recognizer.get_enrolled_id_num();
+
+  if (enrolled_count < FACE_ID_SAVE_NUMBER && is_enrolling) {
+    id = recognizer.enroll_id(tensor, landmarks, "", true);
+    log_i("Enrolled ID: %d", id);
+    rgb_printf(fb, FACE_COLOR_CYAN, "ID[%u]", id);
+  }
+
+  face_info_t recognize = recognizer.recognize(tensor, landmarks);
+  if (recognize.id >= 0) {
+    rgb_printf(fb, FACE_COLOR_GREEN, "ID[%u]: %.2f", recognize.id, recognize.similarity);
+  } else {
+    rgb_print(fb, FACE_COLOR_RED, "Intruder Alert!");
+  }
+  return recognize.id;
+}
+#endif
 ```
