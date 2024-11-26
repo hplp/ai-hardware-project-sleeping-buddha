@@ -43,5 +43,21 @@ Install Android Studio and load necessary packages from https://raw.githubuserco
 ## Installation of antenna
 At the bottom left corner of the XIAO ESP32S3's front side, you'll find a dedicated "WiFi/BT Antenna Connector." To enhance the WiFi and Bluetooth signal, simply take the antenna provided in the package and attach it to this connector.
 
-# Prepare the microSD card
-XIAO ESP32S3 supports microSD cards up to 32GB, we use a 4GB microSD card that will be used later. We format the microSD card to FAT32 format before using the microSD card.
+## Prepare the microSD card
+XIAO ESP32S3 supports microSD cards up to 32GB, we use a 4GB microSD card that will be used later. We format the microSD card to FAT32 format before using the microSD card. After formatting, we insert the microSD card into the microSD card slot.
+
+## Camera slot GPIO mapping
+<img width="531" alt="Screenshot 2024-11-26 at 3 05 29 PM" src="https://github.com/user-attachments/assets/f7d712dd-4d18-494f-88db-eb00b6ad4bde">
+
+## Enabling PSRAM
+The PSRAM on the ESP32S3 (Pseudo Static Random Access Memory) supplements the ESP32S3 chip by providing additional memory space, expanding the system's available RAM. In the ESP32S3 system, PSRAM serves several key purposes:
+
+1. **Expanding RAM capacity**: The built-in RAM of the ESP32S3 is limited, particularly for memory-intensive applications such as image or audio processing. By utilizing PSRAM, the system's RAM capacity can be increased to meet the demands of these applications.
+
+2. **Enhancing memory access**: Although PSRAM is external and slower than internal RAM, it can still be used as cache or temporary memory, helping to improve data processing and memory access speeds.
+
+3. **Providing large storage buffers**: For tasks requiring substantial buffer space, like network or audio buffering, PSRAM offers sufficient storage to prevent memory shortages.
+
+We must enable the PSRAM function in the Arduino IDE to ensure proper operation of the camera.
+
+<img width="598" alt="Screenshot 2024-11-26 at 3 07 27 PM" src="https://github.com/user-attachments/assets/21a7d2a5-9c2f-42dd-a8df-5e8136b5c390">
