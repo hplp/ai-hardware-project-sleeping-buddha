@@ -273,36 +273,28 @@ Model Details:
 The FaceRecognition112V1S8 model is a quantized deep neural network that employs convolutional layers and depthwise separable convolutions to extract and encode facial features into a compact, 128-dimensional embedding. Here's a technical breakdown of its operation:
 
 1. Preprocessing:
-The input image is resized to 112x112x3 (width, height, RGB channels) and normalized for numerical stability.
-Optionally, facial landmarks are detected for alignment, ensuring consistency in the facial pose.
+         The input image is resized to 112x112x3 (width, height, RGB channels) and normalized for numerical stability.
+         Optionally, facial landmarks are detected for alignment, ensuring consistency in the facial pose.
 2. Feature Extraction (Backbone Network):
-Architecture:
-
-Based on a MobileNet-like backbone, optimized for computational efficiency using depthwise separable convolutions:
-Depthwise Convolution: Applies a single convolutional filter per channel to reduce parameter count.
-Pointwise Convolution: Combines the outputs of depthwise convolutions across channels.
-These convolutions significantly reduce the number of operations compared to standard convolutions, making the model suitable for low-resource environments.
-Activation Functions:
-
-Uses ReLU6 (Rectified Linear Unit capped at 6) for non-linearity, helping prevent overflow during quantization.
-Batch Normalization:
-
-Each convolutional layer is followed by batch normalization to stabilize training and inference, especially after quantization.
-Quantization:
-
-Weights and activations are quantized to INT8, where values are represented in 8-bit integers. This reduces memory usage and speeds up inference on devices with integer-optimized hardware.
+         Architecture: Based on a MobileNet-like backbone, optimized for computational efficiency using depthwise separable convolutions:
+         Depthwise Convolution: Applies a single convolutional filter per channel to reduce parameter count.
+         Pointwise Convolution: Combines the outputs of depthwise convolutions across channels.
+T        These convolutions significantly reduce the number of operations compared to standard convolutions, making the model suitable for low-resource environments.
+         Activation Functions: Uses ReLU6 (Rectified Linear Unit capped at 6) for non-linearity, helping prevent overflow during quantization.
+         Batch Normalization: Each convolutional layer is followed by batch normalization to stabilize training and inference, especially after quantization.
+         Quantization: Weights and activations are quantized to INT8, where values are represented in 8-bit integers. This reduces memory usage and speeds up inference on 
+                       devices with integer-optimized hardware.
 3. Bottleneck Layers:
-The network includes bottleneck blocks, which compress intermediate feature maps into lower-dimensional representations:
-These blocks are parameter-efficient and help maintain model accuracy despite quantization.
+         The network includes bottleneck blocks, which compress intermediate feature maps into lower-dimensional representations:
+         These blocks are parameter-efficient and help maintain model accuracy despite quantization.
 4. Embedding Generation (Fully Connected Layer):
-The final output is a 128-dimensional feature vector (embedding) that represents the input face.
-The embedding is compact and discriminative, ensuring faces with similar features (e.g., the same person) produce similar vectors, while distinct faces yield dissimilar vectors.
+        The final output is a 128-dimensional feature vector (embedding) that represents the input face.
+        The embedding is compact and discriminative, ensuring faces with similar features (e.g., the same person) produce similar vectors, while distinct faces yield 
+        dissimilar vectors.
 5. Postprocessing (Face Recognition):
-During enrollment, the embeddings of new faces are saved as templates.
-During recognition:
-The embedding of the current face is computed.
-A cosine similarity or Euclidean distance is calculated between the current embedding and stored embeddings.
-A threshold determines whether the face is recognized or classified as unknown.
+        During enrollment, the embeddings of new faces are saved as templates.
+        During recognition:The embedding of the current face is computed. A cosine similarity or Euclidean distance is calculated between the current embedding and stored 
+        embeddings. A threshold determines whether the face is recognized or classified as unknown.
 
 ## Challenge
 - Only connects to wifi when PSRAM is disabled, then face detection does not work.  
