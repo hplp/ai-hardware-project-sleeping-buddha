@@ -250,32 +250,25 @@ We used FaceRecognition112V1S8. A little overview of the model is given below:
 The FaceRecognition112V1S8 is a lightweight face recognition model optimized for resource-constrained environments. It uses INT8 quantization, which reduces the model's size and computation requirements by representing weights and activations as 8-bit integers instead of 32-bit floats. This makes it ideal for embedded systems like ESP32S3.
 Model Details:
 1.	Input Parameters:
-o	Input Size:
-	A fixed-size RGB image of 112x112 pixels, as the name suggests.
-o	Input Channels:
-	3 (for RGB).
-o	Data Type:
-	Quantized INT8 tensor.
-o	Preprocessing:
-	Input pixel values are normalized and optionally aligned using facial landmarks for consistency.
+         Input Size:A fixed-size RGB image of 112x112 pixels, as the name suggests.
+	       Input Channels:	3 (for RGB).
+         Data Type: Quantized INT8 tensor.
+         Preprocessing: Input pixel values are normalized and optionally aligned using facial landmarks for consistency.
 2.	Output Parameters:
-o	Embedding Size:
-	A 128-dimensional vector representing the facial features.
-o	Data Type:
-	Quantized INT8 tensor.
-o	Usage:
-	The embedding is compared to stored embeddings using similarity metrics like cosine similarity to identify the face.
+         Embedding Size: A 128-dimensional vector representing the facial features.
+         Data Type: Quantized INT8 tensor.
+         Usage: The embedding is compared to stored embeddings using similarity metrics like cosine similarity to identify the face.
 3.	Architecture:
-o	Based on MobileNet-like architecture with adaptations for face recognition.
-o	Contains depthwise separable convolutions to reduce computational complexity while maintaining accuracy.
-o	Includes batch normalization and ReLU6 activations for stable training and inference.
-o	Fully connected layers at the end compress the features into a 128-dimensional embedding space.
+         Based on MobileNet-like architecture with adaptations for face recognition.
+         Contains depthwise separable convolutions to reduce computational complexity while maintaining accuracy.
+         Includes batch normalization and ReLU6 activations for stable training and inference.
+   	     Fully connected layers at the end compress the features into a 128-dimensional embedding space.
 4.	Quantization:
-o	Weights and activations are quantized to INT8 after training, reducing precision but saving memory and computation.
-o	Quantization-aware training ensures minimal accuracy loss during this process.
+         Weights and activations are quantized to INT8 after training, reducing precision but saving memory and computation.
+         Quantization-aware training ensures minimal accuracy loss during this process.
 5.	Model Size:
-o	The quantized INT8 model is typically 1–2 MB, depending on the exact implementation.
-o	This compact size makes it ideal for devices with limited storage and memory, like the ESP32S3 with PSRAM.
+         The quantized INT8 model is typically 1–2 MB, depending on the exact implementation.
+         This compact size makes it ideal for devices with limited storage and memory, like the ESP32S3 with PSRAM.
 
 
 ## Challenge
