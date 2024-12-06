@@ -330,7 +330,7 @@ T        These convolutions significantly reduce the number of operations compar
         During recognition:The embedding of the current face is computed. A cosine similarity or Euclidean distance is calculated between the current embedding and stored 
         embeddings. A threshold determines whether the face is recognized or classified as unknown.
 
-Below is an example showing the detected image.
+Below is an example showing the recognised face with 96.724% probabilty of face associated to the registered ID.
 
 ![image](https://github.com/hplp/ai-hardware-project-sleeping-buddha/blob/main/Screenshot%202024-12-05%20225536.svg)
 
