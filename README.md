@@ -192,7 +192,7 @@ static int run_face_recognition(fb_data_t *fb, std::list<dl::detect::result_t> *
 *Overview**
 This project employs efficient face detection and recognition models optimized for embedded systems. Using the ESP32S3 platform, these models provide real-time performance with minimal resource consumption.
 
-*Face Detection Models*
+###*Face Detection Models*
 
 *(a) HumanFaceDetectMSR01*
 - Description:  
@@ -217,7 +217,7 @@ This project employs efficient face detection and recognition models optimized f
   Bounding boxes and optional landmarks are drawn on detected faces.
 
 
-*Face Recognition Models*
+###*Face Recognition Models*
 
 *(a) FaceRecognition112V1S16*
 - Type:  
@@ -239,7 +239,7 @@ This project employs efficient face detection and recognition models optimized f
 
 *Recognition Process*
 
-Steps:
+###Steps:
 1. Input:  
    - Tensor data (RGB/BGR pixel arrays) extracted from detected face bounding boxes.  
    - Facial landmarks are optionally used for alignment or normalization.
@@ -254,12 +254,12 @@ Steps:
      - Recognized ID.
      - "Intruder Alert!" for unrecognized faces.
 
-Implementation Details
+###Implementation Details
 
-Integration:
+####Integration:
 - Models are part of the **ESP-IDF framework**, with pre-trained weights and inference logic embedded in firmware.
 
-# Performance Optimization
+ ####Performance Optimization
 1. PSRAM Usage:  
    - External PSRAM on the ESP32S3 is utilized for larger memory requirements.
 2. Two-Stage Detection:  
@@ -269,7 +269,7 @@ Integration:
    - Intruders are flagged with **red boxes**.  
    - Status messages like IDs or "Intruder Alert!" are overlayed on the video feed using graphics primitives.
 
-# Scalability
+ ####Scalability
 - The system supports multiple face enrollments.
 - Configurable enrollment limit (`FACE_ID_SAVE_NUMBER`).
 - Scales efficiently for varying image sizes and pixel formats.
