@@ -186,72 +186,106 @@ static int run_face_recognition(fb_data_t *fb, std::list<dl::detect::result_t> *
 #endif
 ```
 ## Face Detecion and Recognition Model
-1. Face Detection Models
-(a) HumanFaceDetectMSR01
-Description: A one-stage or two-stage model for detecting facial regions in an image.
-Features:
-Detects bounding boxes around faces.
-Operates with configurable thresholds (e.g., confidence levels) and scales.
-Two-Stage Detection (Optional):
-Stage 1: Performs rough detection of face candidates.
-Stage 2: Refines results using keypoints for higher accuracy (slower but more precise).
-Pixel Formats:
-Supports both RGB565 and BGR888 formats.
-(b) HumanFaceDetectMNP01
-Description: A complementary model for refining bounding boxes from the MSR01 model.
-Features:
-Enhances precision by evaluating regions and landmarks identified by MSR01.
-Particularly useful in two-stage detection mode.
-Output:
-Bounding boxes and optional landmarks drawn on detected faces.
-2. Face Recognition Models
-(a) FaceRecognition112V1S16
-Type: Quantized Float16 Model.
-Features:
-Uses FP16 (16-bit floating-point) precision for weights and activations.
-Offers higher accuracy at the cost of slower processing and larger firmware size.
-Use Case: Enabled when QUANT_TYPE = 1.
-(b) FaceRecognition112V1S8
-Type: Quantized INT8 Model.
-Features:
-Compact and efficient model using INT8 quantization.
-Faster execution and reduced firmware size with slightly lower accuracy.
-Default Setting: Enabled when QUANT_TYPE = 0.
-Recognition Process
-Steps:
-Input:
 
-Tensor data (RGB/BGR pixel arrays) extracted from detected face bounding boxes.
-Facial landmarks are optionally used for alignment or normalization.
-Enrollment:
+# **Face Detection and Recognition Models**
 
-Users can save face embeddings (enroll_id) to assign unique IDs.
-Embeddings are stored in flash memory for persistent recognition.
-Matching:
+## **Overview**
+This project employs efficient face detection and recognition models optimized for embedded systems. Using the ESP32S3 platform, these models provide real-time performance with minimal resource consumption.
 
-Each detected face is compared against stored embeddings using similarity metrics (e.g., cosine similarity).
-Results are classified as:
-Recognized ID.
-"Intruder Alert!" for unrecognized faces.
-Implementation Details
-Integration
-Models are part of the ESP-IDF framework, with pre-trained weights and inference logic embedded in firmware.
-Performance Optimization
-PSRAM Usage:
+---
 
-External PSRAM on the ESP32S3 is utilized for larger memory requirements.
-Two-Stage Detection:
+## **Face Detection Models**
 
-Improves accuracy but increases processing time.
-Visualization:
+### **(a) HumanFaceDetectMSR01**
+- **Description**:  
+  A one-stage or two-stage model for detecting facial regions in an image.
+- **Features**:  
+  - Detects bounding boxes around faces.  
+  - Operates with configurable thresholds (e.g., confidence levels) and scales.
+- **Two-Stage Detection (Optional)**:  
+  - **Stage 1**: Performs rough detection of face candidates.  
+  - **Stage 2**: Refines results using keypoints for higher accuracy (slower but more precise).
+- **Pixel Formats**:  
+  Supports both **RGB565** and **BGR888** formats.
 
-Recognized faces are marked with green boxes.
-Intruders are flagged with red boxes.
-Status messages like IDs or "Intruder Alert!" are overlayed on the video feed using graphics primitives.
-Scalability
-The system supports multiple face enrollments.
-Configurable enrollment limit (FACE_ID_SAVE_NUMBER).
-Scales efficiently for varying image sizes and pixel formats.
+---
+
+### **(b) HumanFaceDetectMNP01**
+- **Description**:  
+  A complementary model for refining bounding boxes from the MSR01 model.
+- **Features**:  
+  - Enhances precision by evaluating regions and landmarks identified by MSR01.  
+  - Particularly useful in two-stage detection mode.
+- **Output**:  
+  Bounding boxes and optional landmarks are drawn on detected faces.
+
+---
+
+## **Face Recognition Models**
+
+### **(a) FaceRecognition112V1S16**
+- **Type**:  
+  Quantized Float16 Model.
+- **Features**:  
+  - Uses FP16 (16-bit floating-point) precision for weights and activations.  
+  - Offers higher accuracy at the cost of slower processing and larger firmware size.
+- **Use Case**:  
+  Enabled when `QUANT_TYPE = 1`.
+
+---
+
+### **(b) FaceRecognition112V1S8**
+- **Type**:  
+  Quantized INT8 Model.
+- **Features**:  
+  - Compact and efficient model using INT8 quantization.  
+  - Faster execution and reduced firmware size with slightly lower accuracy.
+- **Default Setting**:  
+  Enabled when `QUANT_TYPE = 0`.
+
+---
+
+## **Recognition Process**
+
+### **Steps:**
+1. **Input**:  
+   - Tensor data (RGB/BGR pixel arrays) extracted from detected face bounding boxes.  
+   - Facial landmarks are optionally used for alignment or normalization.
+
+2. **Enrollment**:  
+   - Users can save face embeddings (`enroll_id`) to assign unique IDs.  
+   - Embeddings are stored in flash memory for persistent recognition.
+
+3. **Matching**:  
+   - Each detected face is compared against stored embeddings using **similarity metrics** (e.g., cosine similarity).  
+   - Results are classified as:
+     - Recognized ID.
+     - "Intruder Alert!" for unrecognized faces.
+
+---
+
+## **Implementation Details**
+
+### **Integration**
+- Models are part of the **ESP-IDF framework**, with pre-trained weights and inference logic embedded in firmware.
+
+### **Performance Optimization**
+1. **PSRAM Usage**:  
+   - External PSRAM on the ESP32S3 is utilized for larger memory requirements.
+2. **Two-Stage Detection**:  
+   - Improves accuracy but increases processing time.
+3. **Visualization**:  
+   - Recognized faces are marked with **green boxes**.  
+   - Intruders are flagged with **red boxes**.  
+   - Status messages like IDs or "Intruder Alert!" are overlayed on the video feed using graphics primitives.
+
+### **Scalability**
+- The system supports multiple face enrollments.
+- Configurable enrollment limit (`FACE_ID_SAVE_NUMBER`).
+- Scales efficiently for varying image sizes and pixel formats.
+
+
+This combination of lightweight detection and quantized recognition models makes the implementation well-suited for resource-constrained devices like the ESP32S3. 
 
 
 We used FaceRecognition112V1S8. A little overview of the model is given below:
