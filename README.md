@@ -339,6 +339,34 @@ The algorithm can be visualized by the flow chart drawn below-
 
 ![image](https://github.com/hplp/ai-hardware-project-sleeping-buddha/blob/main/first_milestone/flowchart_v2.svg)
 
+**Gesture Recognition**
+We experiment with two frameworks for model development and deployment.
+1. SenseCraft AI framework: We implement a simple 'Rock paper scissors' hand image recognition
+2. We identify direction pointer: Left/right hand recognition
+Benefit: More compatible and easily deployable
+Con: Model architecture (swift YOLO) is fixed and difficult to customize.
+2. Espressif
+Benefit: Model can be customized as needed.
+Con: Less compatible, Challenges in deploying, doesn't take streaming data
+
+Swift YOLO model with < 2MB size
+<img width="453" alt="image" src="https://github.com/user-attachments/assets/6afda347-39ed-46cf-b341-e30ef7ed2107">
+
+Demo: 'Rock paper scissors'
+<img width="727" alt="image" src="https://github.com/user-attachments/assets/ad7dc28c-38a4-4796-b20e-44c84714fd86">
+
+Demo: Direction pointer
+![image](https://github.com/user-attachments/assets/cd429c58-fd71-4327-a176-207bd2c4f7a7)
+
+Our train data: 86 image samples
+Latency: 700-800ms
+
+![image](https://github.com/user-attachments/assets/d4c241f8-cc00-44e8-b1d4-a7d8cac8b40b)
+
+
+
+![image](https://github.com/user-attachments/assets/3d122b6f-6bb6-4897-98a1-c8510a754433)
+
 ## **Challenges**
 
 During the development of the project, we encountered several challenges that required careful debugging and optimization:
