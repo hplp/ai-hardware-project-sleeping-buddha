@@ -196,7 +196,7 @@ This project employs efficient face detection and recognition models optimized f
 
 ## **Face Detection Models**
 
-### **(a) HumanFaceDetectMSR01**
+# **(a) HumanFaceDetectMSR01**
 - **Description**:  
   A one-stage or two-stage model for detecting facial regions in an image.
 - **Features**:  
@@ -208,9 +208,8 @@ This project employs efficient face detection and recognition models optimized f
 - **Pixel Formats**:  
   Supports both **RGB565** and **BGR888** formats.
 
----
 
-### **(b) HumanFaceDetectMNP01**
+# **(b) HumanFaceDetectMNP01**
 - **Description**:  
   A complementary model for refining bounding boxes from the MSR01 model.
 - **Features**:  
@@ -219,11 +218,10 @@ This project employs efficient face detection and recognition models optimized f
 - **Output**:  
   Bounding boxes and optional landmarks are drawn on detected faces.
 
----
 
-## **Face Recognition Models**
+# **Face Recognition Models**
 
-### **(a) FaceRecognition112V1S16**
+# **(a) FaceRecognition112V1S16**
 - **Type**:  
   Quantized Float16 Model.
 - **Features**:  
@@ -232,9 +230,7 @@ This project employs efficient face detection and recognition models optimized f
 - **Use Case**:  
   Enabled when `QUANT_TYPE = 1`.
 
----
-
-### **(b) FaceRecognition112V1S8**
+# **(b) FaceRecognition112V1S8**
 - **Type**:  
   Quantized INT8 Model.
 - **Features**:  
@@ -243,11 +239,9 @@ This project employs efficient face detection and recognition models optimized f
 - **Default Setting**:  
   Enabled when `QUANT_TYPE = 0`.
 
----
+# **Recognition Process**
 
-## **Recognition Process**
-
-### **Steps:**
+# **Steps:**
 1. **Input**:  
    - Tensor data (RGB/BGR pixel arrays) extracted from detected face bounding boxes.  
    - Facial landmarks are optionally used for alignment or normalization.
@@ -261,8 +255,6 @@ This project employs efficient face detection and recognition models optimized f
    - Results are classified as:
      - Recognized ID.
      - "Intruder Alert!" for unrecognized faces.
-
----
 
 ## **Implementation Details**
 
@@ -283,7 +275,6 @@ This project employs efficient face detection and recognition models optimized f
 - The system supports multiple face enrollments.
 - Configurable enrollment limit (`FACE_ID_SAVE_NUMBER`).
 - Scales efficiently for varying image sizes and pixel formats.
-
 
 This combination of lightweight detection and quantized recognition models makes the implementation well-suited for resource-constrained devices like the ESP32S3. 
 
