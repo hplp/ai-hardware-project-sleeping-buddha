@@ -352,20 +352,22 @@ Con: Less compatible, Challenges in deploying, doesn't take streaming data
 Swift YOLO model with < 2MB size
 <img width="453" alt="image" src="https://github.com/user-attachments/assets/6afda347-39ed-46cf-b341-e30ef7ed2107">
 
-Demo: 'Rock paper scissors'
-<img width="727" alt="image" src="https://github.com/user-attachments/assets/ad7dc28c-38a4-4796-b20e-44c84714fd86">
+Demo: 'Rock paper scissors': [link](https://myuva-my.sharepoint.com/personal/hys4qm_virginia_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fhys4qm%5Fvirginia%5Fedu%2FDocuments%2FFall%2724%2Fai%5Fhardware%5Fgesture%5Frecognition%5F2%2Emov&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E5ff3be2a%2D4b20%2D4dbc%2Db2d3%2D21adbbbbd64a)
 
 Demo: Direction pointer
-![image](https://github.com/user-attachments/assets/cd429c58-fd71-4327-a176-207bd2c4f7a7)
+
+![image](https://github.com/user-attachments/assets/d3a18055-ca50-4394-a25e-a208f49c9444)
+
 
 Our train data: 86 image samples
+
 Latency: 700-800ms
 
-![image](https://github.com/user-attachments/assets/d4c241f8-cc00-44e8-b1d4-a7d8cac8b40b)
 
+**Espressif** project directory, inference is below, challenge: flashing to device
 
+<img width="626" alt="image" src="https://github.com/user-attachments/assets/d1c7becb-023e-4745-87c5-39233dcc7801">
 
-![image](https://github.com/user-attachments/assets/3d122b6f-6bb6-4897-98a1-c8510a754433)
 
 ## **Challenges**
 
