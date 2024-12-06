@@ -256,12 +256,12 @@ This project employs efficient face detection and recognition models optimized f
      - Recognized ID.
      - "Intruder Alert!" for unrecognized faces.
 
-## **Implementation Details**
+# **Implementation Details**
 
-### **Integration**
+# **Integration**
 - Models are part of the **ESP-IDF framework**, with pre-trained weights and inference logic embedded in firmware.
 
-### **Performance Optimization**
+# **Performance Optimization**
 1. **PSRAM Usage**:  
    - External PSRAM on the ESP32S3 is utilized for larger memory requirements.
 2. **Two-Stage Detection**:  
@@ -271,7 +271,7 @@ This project employs efficient face detection and recognition models optimized f
    - Intruders are flagged with **red boxes**.  
    - Status messages like IDs or "Intruder Alert!" are overlayed on the video feed using graphics primitives.
 
-### **Scalability**
+# *Scalability*
 - The system supports multiple face enrollments.
 - Configurable enrollment limit (`FACE_ID_SAVE_NUMBER`).
 - Scales efficiently for varying image sizes and pixel formats.
