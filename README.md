@@ -245,6 +245,8 @@ Model Details:
          The quantized INT8 model is typically 1–2 MB, depending on the exact implementation.
          This compact size makes it ideal for devices with limited storage and memory, like the ESP32S3 with PSRAM.
 
+![image](https://github.com/user-attachments/assets/925f50e1-b3d8-4fcb-90c7-05f494f58ce5)
+
 The FaceRecognition112V1S8 model is a quantized deep neural network that employs convolutional layers and depthwise separable convolutions to extract and encode facial features into a compact, 128-dimensional embedding. Here's a technical breakdown of its operation:
 
 1. Preprocessing:
