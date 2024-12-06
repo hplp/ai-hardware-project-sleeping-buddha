@@ -189,89 +189,87 @@ static int run_face_recognition(fb_data_t *fb, std::list<dl::detect::result_t> *
 
 # **Face Detection and Recognition Models**
 
-## **Overview**
+*Overview**
 This project employs efficient face detection and recognition models optimized for embedded systems. Using the ESP32S3 platform, these models provide real-time performance with minimal resource consumption.
 
----
+*Face Detection Models*
 
-## **Face Detection Models**
-
-# **(a) HumanFaceDetectMSR01**
-- **Description**:  
+*(a) HumanFaceDetectMSR01*
+- Description:  
   A one-stage or two-stage model for detecting facial regions in an image.
-- **Features**:  
+- Features:  
   - Detects bounding boxes around faces.  
   - Operates with configurable thresholds (e.g., confidence levels) and scales.
-- **Two-Stage Detection (Optional)**:  
-  - **Stage 1**: Performs rough detection of face candidates.  
-  - **Stage 2**: Refines results using keypoints for higher accuracy (slower but more precise).
-- **Pixel Formats**:  
-  Supports both **RGB565** and **BGR888** formats.
+- Two-Stage Detection (Optional):  
+  - Stage 1: Performs rough detection of face candidates.  
+  - Stage 2: Refines results using keypoints for higher accuracy (slower but more precise).
+- Pixel Formats:  
+  Supports both *RGB565* and *BGR888* formats.
 
 
-# **(b) HumanFaceDetectMNP01**
-- **Description**:  
+*(b) HumanFaceDetectMNP01*
+- Description:  
   A complementary model for refining bounding boxes from the MSR01 model.
-- **Features**:  
+- Features:  
   - Enhances precision by evaluating regions and landmarks identified by MSR01.  
   - Particularly useful in two-stage detection mode.
-- **Output**:  
+- Output:  
   Bounding boxes and optional landmarks are drawn on detected faces.
 
 
-# **Face Recognition Models**
+*Face Recognition Models*
 
-# **(a) FaceRecognition112V1S16**
-- **Type**:  
+*(a) FaceRecognition112V1S16*
+- Type:  
   Quantized Float16 Model.
-- **Features**:  
+- Features:  
   - Uses FP16 (16-bit floating-point) precision for weights and activations.  
   - Offers higher accuracy at the cost of slower processing and larger firmware size.
-- **Use Case**:  
+- Use Case:  
   Enabled when `QUANT_TYPE = 1`.
 
-# **(b) FaceRecognition112V1S8**
-- **Type**:  
+*(b) FaceRecognition112V1S8*
+- Type:  
   Quantized INT8 Model.
-- **Features**:  
+- Features:  
   - Compact and efficient model using INT8 quantization.  
   - Faster execution and reduced firmware size with slightly lower accuracy.
-- **Default Setting**:  
+- Default Setting:  
   Enabled when `QUANT_TYPE = 0`.
 
-# **Recognition Process**
+*Recognition Process*
 
-# **Steps:**
-1. **Input**:  
+Steps:
+1. Input:  
    - Tensor data (RGB/BGR pixel arrays) extracted from detected face bounding boxes.  
    - Facial landmarks are optionally used for alignment or normalization.
 
-2. **Enrollment**:  
+2. Enrollment:  
    - Users can save face embeddings (`enroll_id`) to assign unique IDs.  
    - Embeddings are stored in flash memory for persistent recognition.
 
-3. **Matching**:  
+3. Matching:  
    - Each detected face is compared against stored embeddings using **similarity metrics** (e.g., cosine similarity).  
    - Results are classified as:
      - Recognized ID.
      - "Intruder Alert!" for unrecognized faces.
 
-# **Implementation Details**
+Implementation Details
 
-# **Integration**
+Integration:
 - Models are part of the **ESP-IDF framework**, with pre-trained weights and inference logic embedded in firmware.
 
-# **Performance Optimization**
-1. **PSRAM Usage**:  
+# Performance Optimization
+1. PSRAM Usage:  
    - External PSRAM on the ESP32S3 is utilized for larger memory requirements.
-2. **Two-Stage Detection**:  
+2. Two-Stage Detection:  
    - Improves accuracy but increases processing time.
-3. **Visualization**:  
+3. Visualization:  
    - Recognized faces are marked with **green boxes**.  
    - Intruders are flagged with **red boxes**.  
    - Status messages like IDs or "Intruder Alert!" are overlayed on the video feed using graphics primitives.
 
-# *Scalability*
+# Scalability
 - The system supports multiple face enrollments.
 - Configurable enrollment limit (`FACE_ID_SAVE_NUMBER`).
 - Scales efficiently for varying image sizes and pixel formats.
