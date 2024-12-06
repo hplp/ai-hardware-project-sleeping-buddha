@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/Users/afsarabenazir/Downloads/Blogs/ESP-DL/sample_project/build/CMakeFiles/bootloader
+/Users/afsarabenazir/Downloads/Blogs/ESP-DL/sample_project/build/CMakeFiles/bootloader.rule
+/Users/afsarabenazir/Downloads/Blogs/ESP-DL/sample_project/build/CMakeFiles/bootloader-complete.rule
+/Users/afsarabenazir/Downloads/Blogs/ESP-DL/sample_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/Users/afsarabenazir/Downloads/Blogs/ESP-DL/sample_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/Users/afsarabenazir/Downloads/Blogs/ESP-DL/sample_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/Users/afsarabenazir/Downloads/Blogs/ESP-DL/sample_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/Users/afsarabenazir/Downloads/Blogs/ESP-DL/sample_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/Users/afsarabenazir/Downloads/Blogs/ESP-DL/sample_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/Users/afsarabenazir/Downloads/Blogs/ESP-DL/sample_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

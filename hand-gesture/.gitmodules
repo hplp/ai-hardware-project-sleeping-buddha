@@ -1,0 +1,6 @@
+[submodule "sample_project/components/esp-who"]
+	path = sample_project/components/esp-who
+	url = https://github.com/espressif/esp-who.git
+[submodule "sample_project/components/esp-dl"]
+	path = sample_project/components/esp-dl
+	url = https://github.com/espressif/esp-dl.git
