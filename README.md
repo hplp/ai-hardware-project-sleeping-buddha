@@ -273,8 +273,15 @@ T        These convolutions significantly reduce the number of operations compar
         During recognition:The embedding of the current face is computed. A cosine similarity or Euclidean distance is calculated between the current embedding and stored 
         embeddings. A threshold determines whether the face is recognized or classified as unknown.
 
-## Challenge
-- Only connects to wifi when PSRAM is disabled, then face detection does not work.  
-- thermal throttling (face detection stops working)
+## Challenges
+-Setting up WiFi​
+-Enabling streaming data – configuring GPIO port​
+-Model Deployment: memory constraint, serial port connection​
+-Made different choice of models​
+ Resolved after bootloading multiple times​
+-Thermal throttling​
+  Soln: heat sink​
+-Issue: always need to be reset​
+ Acceptable given device constraint
 
-video [link](https://myuva-my.sharepoint.com/personal/gsq2at_virginia_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fgsq2at%5Fvirginia%5Fedu%2FDocuments%2FDesktop%2FUVA%20courses%2F2024%2FFall%2FAI%20HArdware%2FProject%2FIMG%5F3417%2EMOV&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E7faa3b63%2D0501%2D4320%2D9763%2D31454684271f)
+Demo video [link](https://myuva-my.sharepoint.com/personal/gsq2at_virginia_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fgsq2at%5Fvirginia%5Fedu%2FDocuments%2FDesktop%2FUVA%20courses%2F2024%2FFall%2FAI%20HArdware%2FProject%2FIMG%5F3417%2EMOV&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E7faa3b63%2D0501%2D4320%2D9763%2D31454684271f)
