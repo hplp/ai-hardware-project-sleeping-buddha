@@ -334,6 +334,11 @@ Below is an example showing the recognised face with 96.724% probabilty of face 
 
 ![image](https://github.com/hplp/ai-hardware-project-sleeping-buddha/blob/main/Screenshot%202024-12-05%20225536.svg)
 
+## **Flow Chart**
+The algorithm can be visualized by the flow chart drawn below-
+
+![image](https://github.com/hplp/ai-hardware-project-sleeping-buddha/blob/main/first_milestone/flowchart_v2.svg)
+
 ## **Challenges**
 
 During the development of the project, we encountered several challenges that required careful debugging and optimization:
