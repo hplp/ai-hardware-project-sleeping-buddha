@@ -334,16 +334,32 @@ Below is an example showing the recognised face with 96.724% probabilty of face 
 
 ![image](https://github.com/hplp/ai-hardware-project-sleeping-buddha/blob/main/Screenshot%202024-12-05%20225536.svg)
 
-## Challenges
--Setting up WiFi​
--Enabling streaming data 
-– configuring GPIO port​
--Model Deployment: memory constraint, serial port connection​
--Made different choice of models​
- Resolved after bootloading multiple times​
--Thermal throttling​
-  Soln: heat sink​
--Issue: always need to be reset​
- Acceptable given device constraint
+## **Challenges**
+
+During the development of the project, we encountered several challenges that required careful debugging and optimization:
+
+- **Setting up WiFi**:  
+  Ensuring stable and consistent connectivity was challenging during the initial setup phase.
+
+- **Enabling Streaming Data**:  
+  Configuring the system for reliable data streaming required adjustments in communication protocols.
+
+- **Configuring GPIO Ports**:  
+  Mapping and testing GPIO ports for seamless interaction with hardware components.
+
+- **Model Deployment**:  
+  - Overcoming **memory constraints** due to limited onboard resources.
+  - Resolving issues with **serial port connections** during deployment.
+
+- **Choosing Suitable Models**:  
+  - Experimented with different models to balance accuracy, latency, and resource requirements.
+  - Required multiple iterations and bootloading to resolve compatibility issues.
+
+- **Thermal Throttling**:  
+  Addressed overheating problems by integrating a heat sink to maintain stable performance during extended use.
+
+### **Resolution**
+Through persistent debugging, hardware adjustments, and model optimization, these challenges were systematically resolved, ensuring smooth system performance and deployment.
+
 
 Demo video [link](https://myuva-my.sharepoint.com/personal/gsq2at_virginia_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fgsq2at%5Fvirginia%5Fedu%2FDocuments%2FDesktop%2FUVA%20courses%2F2024%2FFall%2FAI%20HArdware%2FProject%2FIMG%5F3417%2EMOV&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E7faa3b63%2D0501%2D4320%2D9763%2D31454684271f)
